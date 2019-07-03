@@ -1,15 +1,17 @@
-# Vapor Clean
+# UIKitForMacAPI
 
-This is a template for Vapor 3 users that does the absolute minimum to set up a working Vapor 3 environment.
+This is a a project made from a template called Vapor Clean
 
-Unlike the official templates that are currently available, this template does not include vast swathes of extra example code that you will always need to delete. Instead, it adds just a single “hello” route so you can be sure everything is working correctly.
+This project Is designed to show a basic Implementaion of creating an API For the newly announced capabilities of iPadOS .
 
-Although this repository contains a LICENSE file, this is meant for you to replace with whatever license you intend to use – please consider what little code is in this repository as public domain, and yours to do with as you please.
+The Project is a Receipt Collector it allows you to take pictures of receipts from you mobile device and view them for you accounting needs at home on you Mac.
 
-It’s my hope that the official Vapor project will add a template similar to this one at some point in the future, but until then please use this however you want.
+It teaches the basics of how to build a back end in Vapor Swift.
 
-## Try it out
 
-If you have already installed the Vapor toolbox, you can create a new Vapor project from this repo using the following command:
+
+## Thanks For the Clean up twoStraws 
+
+If you have already installed the Vapor toolbox, you can create a new Vapor Clean project from this repo using the following command:
 
     vapor new MyProject --template=twostraws/vapor-clean
