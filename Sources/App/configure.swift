@@ -60,6 +60,9 @@ public func configure(
     commandConfig.useFluentCommands()
     services.register(commandConfig)
     
+    //We nned to expand the byte size for sending requests
+    services.register(NIOServerConfig.default(maxBodySize: 20_000_000))
+    
     //Detect the directory
     let directoryConfig = DirectoryConfig.detect()
     services.register(directoryConfig)

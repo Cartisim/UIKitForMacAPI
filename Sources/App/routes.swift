@@ -10,4 +10,7 @@ public func routes(_ router: Router) throws {
     }
     let receiptsController = ReceiptsController()
     try router.register(collection: receiptsController)
+//    
+//    let imagesController = ImagesController()
+//    try router.register(collection: imagesController)
 }

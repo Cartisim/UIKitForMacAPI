@@ -1,27 +1,21 @@
-import Foundation
 import Vapor
 import FluentPostgreSQL
 
 final class Receipts: Codable {
     
-    var id: UUID?
+    var id: Int?
     var details: String
     var timestamp: String
+    var imageString: String?
     
-    init(details: String, timestamp: String) {
+    init(details: String, timestamp: String, imageString: String? = nil) {
         self.details = details
         self.timestamp = timestamp
+        self.imageString = imageString
     }
 }
 
-extension Receipts: PostgreSQLUUIDModel {}
+extension Receipts: PostgreSQLModel {}
 extension Receipts: Migration {}
 extension Receipts: Parameter {}
 extension Receipts: Content {}
-
-extension Receipts {
-    var image: Children<Receipts, Images> {
-        return children(\.receiptID)
-    } 
-}
-
