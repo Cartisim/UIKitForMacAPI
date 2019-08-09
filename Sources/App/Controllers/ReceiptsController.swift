@@ -5,9 +5,9 @@ struct ReceiptsController: RouteCollection {
         print("booted")
         
         let receiptRoute = router.grouped("api", "receipt")
+        receiptRoute.post(Receipts.self, use: createHandler)
         receiptRoute.get(use: getAllHandler)
         receiptRoute.get(Receipts.parameter,  use: getHandler)
-        receiptRoute.post(Receipts.self, use: createHandler)
         receiptRoute.put(Receipts.self, at: Receipts.parameter, use: updateHandler)
         receiptRoute.delete(Receipts.parameter, use: deleteReceiptsHandler)
         receiptRoute.post("users", Receipts.parameter, "profilePicture", use: addProfilePicturePostHandler)
@@ -53,7 +53,7 @@ struct ReceiptsController: RouteCollection {
             // 6
             receipt.imageString = name
             // 7
-            let redirect = request.redirect(to: "/")
+            let redirect = request.redirect(to: "")
             return receipt.save(on: request).transform(to: redirect)
         }
     }

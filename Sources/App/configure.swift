@@ -10,16 +10,25 @@ public func configure(
     _ services: inout Services
     ) throws {
     
-    //Config Remote DB
+    //Configure DB
     let database: String
     let port: Int
+    let hostname: String
+    let username: String
+    //    let password: String
     
     if env == .testing {
         database = Secrets.localDatabase
         port = Secrets.localPort
+        hostname = Secrets.hostname
+        username = Secrets.username
+//        password = Secrets.password
     } else {
         database = Secrets.database
         port = Secrets.port
+        hostname = Secrets.hostname
+        username = Secrets.username
+//        password = Secrets.password
     }
     
     //Register the Provider
@@ -34,11 +43,6 @@ public func configure(
     var middleware = MiddlewareConfig()
     middleware.use(ErrorMiddleware.self)
     services.register(middleware)
-    
-    //Configure PostgresDB
-    let hostname = Environment.get(Secrets.hostname) ?? "localhost"
-    let username = Environment.get(Secrets.username) ?? "cartisim"
-    //    let password = Environment.get(Secrets.password) ?? "password"
     
     //Add password parameter to the databaseConfig if you require a password
     let databaseConfig = PostgreSQLDatabaseConfig(hostname: hostname, port: port, username: username, database: database)
@@ -60,7 +64,7 @@ public func configure(
     commandConfig.useFluentCommands()
     services.register(commandConfig)
     
-    //We nned to expand the byte size for sending requests
+    //We need to expand the byte size for sending requests
     services.register(NIOServerConfig.default(maxBodySize: 20_000_000))
     
     //Detect the directory

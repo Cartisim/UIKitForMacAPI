@@ -1,4 +1,4 @@
 module CCryptoOpenSSL {
-    umbrella "/Users/cartisim/Documents/TeachingDevelopment/UIKitForMacAPI/.build/checkouts/crypto/Sources/CCryptoOpenSSL/include"
+    umbrella "/Users/cartisim/Documents/TeachingDevelopment/Receipt App/UIKitForMacAPI/.build/checkouts/crypto/Sources/CCryptoOpenSSL/include"
     export *
 }
